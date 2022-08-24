@@ -1,5 +1,5 @@
 
-# EzBot
+# LReputation
 [![Python version](https://img.shields.io/badge/python-3.9-blue.svg)](https://python.org)
 
 LReputation, a bot to manage the reputation points of a community in order to promote its good behavior.
