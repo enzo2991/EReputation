@@ -1,6 +1,7 @@
 
 # LReputation
 [![Python version](https://img.shields.io/badge/python-3.9-blue.svg)](https://python.org)
+[![GitHub stars](https://img.shields.io/github/stars/Enzo2991/LReputation.svg)](https://github.com/Enzo2991/LReputation/stargazers)
 
 LReputation, a bot to manage the reputation points of a community in order to promote its good behavior.
 
