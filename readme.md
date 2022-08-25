@@ -21,12 +21,13 @@ pip install requests
 
 * edit config.json
 ```
-  "token": "",
-  "ClientId": ,
-  "guildId":,
-  "rolestaff":[],
-  "roleverif":[],
-  "SlashCommand": true
+  "token": "abc",
+  "ClientId": 1234,
+  "guildId": 1234,
+  "rolestaff":[1234],
+  "roleverif":[1234],
+  "SlashCommand": true,
+  "nRep": 25
 ```
 
 * in your [developer discord portal](https://discord.com/developers/applications/), go to O2Auth, then in general, activate the scope applications.commands and give it the necessary rights
