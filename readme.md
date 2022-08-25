@@ -47,6 +47,7 @@ python main.py
 | `/rep`  | gives 1 point of reputation to a player |
 | `/reset`  | allows to reset the player's reputation  |
 | `/rep-`  | allows you to remove points from a player  |
+| `/showother`  | allows you to see the reputation of another person  |
 
 ## Libs
 [interactions.py](https://github.com/interactions-py)
