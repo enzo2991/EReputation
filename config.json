@@ -4,5 +4,6 @@
   "guildId":1234,
   "rolestaff":[1234],
   "roleverif":[1234],
-  "SlashCommand": true
+  "SlashCommand": true,
+  "nRep": 25
 }
