@@ -71,7 +71,7 @@ if data["SlashCommand"]:
                     rep = userdata["rep"]
                     rep = int(rep)
                     rep += 1
-                    if (rep == 25) and (not verif):
+                    if (rep == data["nRep"]) and (not verif):
                         channel = interactions.Channel(** await bot._http.get_channel(980577733916622918), _client=bot._http)
                         embedstaff = interactions.Embed(title="Passage en joueur Vérifier",color=0xA37FC8,timestamp=datetime.datetime.now())
                         embedstaff.add_field(name="joueur",value=f"<@{member.id}>")
@@ -202,4 +202,46 @@ if data["SlashCommand"]:
                 await ctx.send(content="Tu n'as pas mis un bon chiffre",ephemeral=True)
         else:
             await ctx.send(content="Tu n'es pas membre du staff, pour executer cette commande",ephemeral=True)
+
+    @bot.command(
+        name="showother",
+        description="Montre la reputation du joueur demandé",
+        scope=int(data["guildId"]),
+        options=[
+            interactions.Option(
+                name="user",
+                type=interactions.OptionType.USER,
+                description="Indiquez l'utilisateur",
+                required=True
+            )
+        ]
+    )
+    async def showother(ctx: interactions.CommandContext,user : interactions.User):
+        rolestaff = data["rolestaff"]
+        staff = False
+        listrole = ctx.author.roles
+        for i in listrole:
+            if i in rolestaff:
+                staff = True
+                break
+        if staff:
+            member = interactions.Member(**await bot._http.get_member(data["guildId"],user.id),_client=bot._http)
+            userid = user.id
+            userid = int(userid)
+            useravatar = user.avatar
+            try:
+                with open('./rep.json', 'r+') as f:
+                    dataload = json.load(f)
+                    userdata = dataload[user.id]
+                    rep = userdata["rep"]
+                    rep = int(rep)
+                    embed = interactions.Embed(title="Réputation de "+member.name,color=0xA37FC8,timestamp=datetime.datetime.now())
+                    embed.add_field(name="Points de réputation :",value=rep)
+                    embed.set_thumbnail(url=f"https://cdn.discordapp.com/avatars/{userid}/{useravatar}.png?size=512")
+                    await ctx.send(embeds=embed,ephemeral=True)  
+            except:
+                await ctx.send(content=f"l'utilisateur <@{userid}> n'a pas de reputation",ephemeral=True)
+        else:
+            await ctx.send(content="Tu n'es pas membre du staff, pour executer cette commande",ephemeral=True)
+            
 bot.start()
